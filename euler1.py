@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# this is euler
 answer = 0
 
 for numba in range(1,1000):
