@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 #ez bac
 import random
 
@@ -5,7 +7,7 @@ import random
 
 def menu():
     print('''
-    
+
     ''')
 #draw board.
 #def drawBoard(playerH, dealerH, bet)
@@ -81,7 +83,7 @@ def dealHand(shoe):
     numB = 0
     #natural hand?
     nat = False
-    
+
     for i in range(4):
         if i == 0 or i == 2:
             playerH.append(dealC(shoe))
