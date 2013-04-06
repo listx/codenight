@@ -81,7 +81,7 @@ def placeBet(mon):
     while(betValid == False):
         b = int(input())
         #what if not a number? error
-        if (b % 5 == 0 and 0 < b and b <= mon):
+        if (b % 5 == 0 and 0 <= b and b <= mon):
             betValid = True
             break
         else:
