@@ -1,4 +1,4 @@
-#ez bac
+#!/usr/bin/env python
 import random
 
 #print rules. def RULES
