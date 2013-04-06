@@ -81,9 +81,11 @@ def placeBet(mon):
     while(betValid == False):
         b = int(input())
         #what if not a number? error
-        if (b % 5 == 0 and 0 <= b <= mon):
+        if (b % 5 == 0 and 0 < b and b <= mon):
             betValid = True
             break
+        else:
+            print('enter a valid number')
     return b
 
 #ask for player bets.bet is [0 = player, 1 = banker, 2 = tie, 3 = dragon, 4 = panda8]
