@@ -40,9 +40,9 @@ def availMon(totMon, wages):
     return aMon
 
 #add money
-def dep(totMon):
-    totMon += 1000
-    return totMon
+def dep(amt, acct):
+    acct += amt
+    return acct
 
 #check if no more money
 def lose(totMon):
@@ -86,7 +86,8 @@ def placeBet(mon):
             break
         else:
             print('enter a valid number')
-    return b
+    mon -= b
+    return (mon, b)
 
 #ask for player bets.bet is [0 = player, 1 = banker, 2 = tie, 3 = dragon, 4 = panda8]
 def wager(totMon):
@@ -99,15 +100,15 @@ def wager(totMon):
         a = input()
     if(a in 'Pp'):
         print('How much will you bet on PLAYER?')
-        bet[0] = placeBet(totMon)
+        (totMon, bet[0]) = placeBet(totMon)
         print(bet[0], 'on PLAYER')
     else:
         print('How much will you bet on BANKER?')
-        bet[1] = placeBet(totMon)
+        (totMon, bet[1]) = placeBet(totMon)
         print(bet[1], 'on BANKER')
     for i in range(2,5):
         print('You may place a', spots[i], 'bet')
-        bet[i] = placeBet(totMon)
+        (totMon, bet[i]) = placeBet(totMon)
         print(bet[i], 'on', spots[i])
     wages = sum(bet)
     return [bet, wages]
@@ -239,8 +240,7 @@ if __name__ == "__main__":
     #start money is 0
     totMon = 0
 
-    totMon = dep(totMon)
-    totMon = dep(totMon)
+    totMon = dep(20, totMon)
     print(totMon)
 
     p = wager(totMon)
