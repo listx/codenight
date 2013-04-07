@@ -96,8 +96,8 @@ def wager(totMon):
     a = 'x'
     while(a not in 'PpBb'):
         print('Do you want to bet on PLAYER(p) or BANKER(b)?')
-        print('Place a valid bet, increments of $5')
         a = input()
+    print('Place a valid bet, increments of $5')
     if(a in 'Pp'):
         print('How much will you bet on PLAYER?')
         (totMon, bet[0]) = placeBet(totMon)
