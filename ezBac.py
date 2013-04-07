@@ -131,7 +131,7 @@ def dealHand(shoe):
     numB = 0
     #natural hand?
     nat = False
-    
+
     for i in range(4):
         if i == 0 or i == 2:
             playerH.append(dealC(shoe))
