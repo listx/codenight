@@ -249,16 +249,21 @@ if __name__ == "__main__":
     totMon = dep(20, totMon)
     print('You have $', totMon, 'in chips.')
 
-    p = wager(totMon)
-    print(p)
-    a = availMon(totMon, p[1])
-    print(a)
+    while True:
+        p = wager(totMon)
+        print(p)
+        a = availMon(totMon, p[1])
+        print(a)
 
-    newShoe = shoe(8)
-    burn(newShoe)
-    results = dealHand(newShoe)
+        newShoe = shoe(8)
+        burn(newShoe)
+        results = dealHand(newShoe)
 
-    print(results)
-    w = detWinLose(results[2], results[3], results[4], results[5])
-    totMon = moneyBack(p[0], w, a)
-    print(totMon)
+        print(results)
+        w = detWinLose(results[2], results[3], results[4], results[5])
+        totMon = moneyBack(p[0], w, a)
+        print(totMon)
+
+        if totMon == 0:
+            print('Your dreams are crushed.')
+            break
