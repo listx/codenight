@@ -253,6 +253,13 @@ if __name__ == "__main__":
     newShoe = shoe(8)
     burn(newShoe)
 
+    goodByes = [
+          'Your dreams are crushed.'
+        , 'Your mommy forgot to teach you how to win.'
+        , 'Go home and be a family man.'
+        , 'YOU SUCK.'
+        ]
+
     while True:
         p = wager(totMon)
         print(p)
@@ -267,5 +274,5 @@ if __name__ == "__main__":
         print(totMon)
 
         if totMon == 0:
-            print('Your dreams are crushed.')
+            print(random.choice(goodByes))
             break
