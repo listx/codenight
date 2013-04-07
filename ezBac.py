@@ -33,7 +33,7 @@ def availMon(totMon, wages):
     return aMon
 
 #add money
-def dep(amt, acct):
+def deposit(amt, acct):
     acct += amt
     return acct
 
@@ -246,7 +246,7 @@ if __name__ == "__main__":
     #start money is 0
     totMon = 0
 
-    totMon = dep(20, totMon)
+    totMon = deposit(20, totMon)
     print('You have $', end='')
     print(totMon, 'in chips.')
 
