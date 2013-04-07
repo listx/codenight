@@ -116,7 +116,8 @@ def printMoneyRemaining(m, isCap):
         print('Y', end='')
     else:
         print('y', end='')
-    print('ou have $', m, 'remaining.')
+    print('ou have $', end='')
+    print(m, 'remaining.')
 
 #draw one card
 def dealC(aShoe):
