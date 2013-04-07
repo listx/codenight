@@ -93,7 +93,7 @@ def wager(totMon):
     print('Place a valid bet, increments of $5')
     if(a in 'Pp'):
         print('How much will you bet on PLAYER?', end=' ')
-        printMoneyRemaining(totMon)
+        printMoneyRemaining(totMon, True)
         (totMon, bet[0]) = placeBet(totMon)
         print(bet[0], 'on PLAYER')
     else:
