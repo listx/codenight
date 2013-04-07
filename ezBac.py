@@ -257,16 +257,17 @@ if __name__ == "__main__":
 
     while True:
         p = wager(totMon)
-        print(p)
+        #print(p)
         a = availMon(totMon, p[1])
-        print(a)
+        #print(a)
 
         results = dealHand(newShoe)
 
         print(results)
         w = detWinLose(results[2], results[3], results[4], results[5])
         totMon = moneyBack(p[0], w, a)
-        print(totMon)
+        print('You now have $', end='')
+        print(totMon, end='!\n')
 
         if totMon == 0:
             print(random.choice(goodByes), end='')
