@@ -109,7 +109,8 @@ def wager(totMon):
     for i in range(2,5):
         if (totMon == 0):
             break
-        print('You may place a', spots[i], 'bet')
+        print('You may place a', spots[i], 'bet; you have $', totMon,
+        'remaining')
         (totMon, bet[i]) = placeBet(totMon)
         print(bet[i], 'on', spots[i])
     wages = sum(bet)
