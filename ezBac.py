@@ -19,12 +19,6 @@ def drawBoard(results, bet):
 ''', results[0], '||', results[1], '''
 .................||.................
 ''')
-print('You have bet:')
-#print('Panda....', a[4])
-#print('Dragon...', a[3])
-#print('Tie......', a[2])
-#print('Banker...', a[1])
-#print('Player...', a[0])
 
 #strings calling out the winner
 WIN = ['Player wins!',
@@ -32,7 +26,6 @@ WIN = ['Player wins!',
 'TIE! Pays 9:1!',
 'DRAGON! bankers push, dragon pays 40:1!!!',
 'PANDA! panda 25:1 and players win!!!']
-
 
 #current money total
 def availMon(totMon, wages):
