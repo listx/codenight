@@ -247,7 +247,8 @@ if __name__ == "__main__":
     totMon = 0
 
     totMon = dep(20, totMon)
-    print('You have $', totMon, 'in chips.')
+    print('You have $', end='')
+    print(totMon, 'in chips.')
 
     newShoe = shoe(8)
     burn(newShoe)
