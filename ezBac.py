@@ -92,22 +92,31 @@ def wager(totMon):
         a = input()
     print('Place a valid bet, increments of $5')
     if(a in 'Pp'):
-        print('How much will you bet on PLAYER?')
+        print('How much will you bet on PLAYER?', end=' ')
+        printMoneyRemaining(totMon)
         (totMon, bet[0]) = placeBet(totMon)
         print(bet[0], 'on PLAYER')
     else:
-        print('How much will you bet on BANKER?')
+        print('How much will you bet on BANKER?', end=' ')
+        printMoneyRemaining(totMon, True)
         (totMon, bet[1]) = placeBet(totMon)
         print(bet[1], 'on BANKER')
     for i in range(2,5):
         if (totMon == 0):
             break
-        print('You may place a', spots[i], 'bet; you have $', totMon,
-        'remaining')
+        print('You may place a', spots[i], 'bet', end='; ')
+        printMoneyRemaining(totMon, False)
         (totMon, bet[i]) = placeBet(totMon)
         print(bet[i], 'on', spots[i])
     wages = sum(bet)
     return [bet, wages]
+
+def printMoneyRemaining(m, isCap):
+    if isCap:
+        print('Y', end='')
+    else:
+        print('y', end='')
+    print('ou have $', m, 'remaining.')
 
 #draw one card
 def dealC(aShoe):
@@ -237,7 +246,7 @@ if __name__ == "__main__":
     totMon = 0
 
     totMon = dep(20, totMon)
-    print(totMon)
+    print('You have $', totMon, 'in chips.')
 
     p = wager(totMon)
     print(p)
