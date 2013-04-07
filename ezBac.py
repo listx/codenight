@@ -233,23 +233,24 @@ def moneyBack(bet, whoWins, availMon):
     totMon = availMon + chips
     return totMon
 
-#start money is 0
-totMon = 0
+if __name__ == "__main__":
+    #start money is 0
+    totMon = 0
 
-totMon = dep(totMon)
-totMon = dep(totMon)
-print(totMon)
+    totMon = dep(totMon)
+    totMon = dep(totMon)
+    print(totMon)
 
-p = wager(totMon)
-print(p)
-a = availMon(totMon, p[1])
-print(a)
+    p = wager(totMon)
+    print(p)
+    a = availMon(totMon, p[1])
+    print(a)
 
-newShoe = shoe(8)
-burn(newShoe)
-results = dealHand(newShoe)
+    newShoe = shoe(8)
+    burn(newShoe)
+    results = dealHand(newShoe)
 
-print(results)
-w = detWinLose(results[2], results[3], results[4], results[5])
-totMon = moneyBack(p[0], w, a)
-print(totMon)
+    print(results)
+    w = detWinLose(results[2], results[3], results[4], results[5])
+    totMon = moneyBack(p[0], w, a)
+    print(totMon)
