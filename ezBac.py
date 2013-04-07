@@ -107,6 +107,8 @@ def wager(totMon):
         (totMon, bet[1]) = placeBet(totMon)
         print(bet[1], 'on BANKER')
     for i in range(2,5):
+        if (totMon == 0):
+            break
         print('You may place a', spots[i], 'bet')
         (totMon, bet[i]) = placeBet(totMon)
         print(bet[i], 'on', spots[i])
