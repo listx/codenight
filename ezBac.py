@@ -249,14 +249,15 @@ if __name__ == "__main__":
     totMon = dep(20, totMon)
     print('You have $', totMon, 'in chips.')
 
+    newShoe = shoe(8)
+    burn(newShoe)
+
     while True:
         p = wager(totMon)
         print(p)
         a = availMon(totMon, p[1])
         print(a)
 
-        newShoe = shoe(8)
-        burn(newShoe)
         results = dealHand(newShoe)
 
         print(results)
