@@ -1,0 +1,90 @@
+Numbers
+-------
+
+	/ # divide numbers -- can get a float
+	// # divide, but truncate remainder float (always stay as int)
+
+	import math
+	round(3.49) # 3
+	math.ceil(3.49) # 4
+
+Lists
+-----
+
+Python lists can be heterogenous.
+
+	[1,2,3] # valid list
+	[1, "hi", [(3, 4), "x"], 340] # valid list
+
+Slice notation
+--------------
+
+	x = [1, 2, 3]
+	x[m:n] # here m is the INCLUSIVE starting point and n is the EXCLUSIVE ending point
+	# a [:n] slice starts at its beginning, and [m:] goes to a list's end
+
+List operators
+--------------
+
+	x = [1,2,3]
+	len(x) # 3
+	x + x # [1,2,3,1,2,3]
+	x * 3 # [1,2,3,1,2,3,1,2,3]
+	x.reverse() # [3,2,1]
+
+Tuples
+------
+
+Tuples are like lists, but are *IMMUTABLE* (all functions on them return NEW tuples, and do not modify the original).
+Tuples can also have heterogenous elements.
+You can use slice notation on tuples, too!
+Tuples are more efficient than lists when you don't need modifiability.
+Tuples can be converted to and from lists with the tuple() and list() functions.
+
+	() # an empty tuple
+	(1,) # A one-element tuple needs a comma.
+
+	x = [1,2,3]
+	tuple(x) # (1, 2, 3)
+	y = (4, 5, 6)
+	list(y) # [4, 5, 6]
+
+Strings
+-------
+
+"""Triple double quoted string""" # only these types of strings can contain real newline characters (all other strings like 'this' or "that" must use the escape character like this "\n")
+
+Strings are *IMMUTABLE*.
+
+	x = "blah blah"
+	x.split() # ['blah', 'blah']
+	x.replace("blah", "coo") # 'coo coo'
+
+	x = 2.718
+	print("the value of %s is: %.2f" % ("x", x)) # use of `% (...)' provides similar formatting as C's sprintf()
+
+Dictionaries
+------------
+
+Dictionaries' keys can also be heterogenous types (although it doesn't seem sane to have such keys...).
+
+	x = {1: "one", 2: "two"}
+
+Some dictionary methods: clear, copy, get, has_key, items, keys, values, update
+
+Sets
+----
+
+Useful for determining membership and uniqueness.
+
+	x = set([1,2,3]) # {1,2,3} # lists, and other *sequence* types, can be passed into set()
+	1 in x # True
+	4 in x # False
+
+The set() function removes duplicates.
+
+Boolean expressions
+-------------------
+
+0, None (python's nil value), and empty values like [] or "" are all taken as FALSE!!!
+True and everything else is TRUE!!!
