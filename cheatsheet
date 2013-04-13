@@ -1,0 +1,39 @@
+man COMMAND #loads the manual for the command with less
+less path/txtfile #shows you the file as a read only, useful for long files or browsing only
+    q #quit
+    / #search
+    n next search match
+    N previous search match
+cat file #prints file into current shell
+echo aaaaaaa #print std output
+cd # change directory
+cd #no argument goes to ~
+cd .. #moves up one directory
+cd ../.. #moves up 2 directories
+cd / # move to top directory
+ls #list everything inside directory, files/folders/etc...
+touch [PATH/]FILENAME #creates empty file with name filename
+    #any argument to cd or touch can be a path.
+ctrl up #scrolls up
+cp path/file1 path/file2 #copy 1 to 2, might overwrite existing 2
+cp dir1 dir2
+cp file folder # makes a copy of file inside folder
+mkdir path/folder #makes a folder
+mkdir -p a/b/c #makes c folder in b folder in a folder if none exists
+rm path/file1 (file2 file3 file4) #delete files
+rmdir path/folder1 (folder2 folder3...) #delete EMPTY folders
+rm -rf folders or files #deletes everything named
+* #selects everthinf in the argument directory so run/* selects everything under run
+mv folder1 oop/folder2 or file1 file2 #change folder1 to oop/folder2
+mv file oopoop/folder #moes file to inside folder
+~ = /home/dan from any directory
+
+d #use d instead of cd, combination of cd and ls
+l #use l instead of ls
+d file #open the file depending on ~/.zsh/func/univ_open
+k # use instead of cd ..
+kk #use instead of cd ../.. and so on
+
+a > b #replcaes b file with ouput of command a, "shell redirection"
+a >> b #adds output of a to end of b
+a | b | c #spits out output of a into b, output b into c, "pipe operator"
