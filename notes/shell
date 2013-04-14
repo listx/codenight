@@ -34,6 +34,9 @@ d file #open the file depending on ~/.zsh/func/univ_open
 k # use instead of cd ..
 kk #use instead of cd ../.. and so on
 
+chmod +x FILE # turn on execute bit on FILE
+./executable-file # execute `executable-file'
+
 a > b #replcaes b file with ouput of command a, "shell redirection"
 a >> b #adds output of a to end of b
 a | b | c #spits out output of a into b, output b into c, "pipe operator"
