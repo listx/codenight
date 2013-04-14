@@ -1,0 +1,60 @@
+Vim starts in NORMAL MODE
+
+- to input text like Notepad, go into INSERT MODE first with one of: i, I, a, A, o, O
+
+- i: insert under cursor
+- I: insert at beginning of current line
+- a: insert after cursor
+- A: insert at end of current line
+- o: insert below current line
+- O: insert above current line
+
+- to go back into NORMAL mode, use ESC, or CTRL-[, or "kj" quickly
+
+NORMAL mode commands
+--------------------
+h -> move left one char
+j -> move down one line
+k -> move up one line
+l -> move right one char
+x -> delete current character under cursor
+dd -> delete current line
+S -> delete current line AND go into INSERT mode
+cc -> same as `S'
+D -> delete rest of line
+C -> delete rest of line after cursor AND go into INSERT mode
+SPACE -> move 10 lines down
+BACKSPACE -> move 10 lines up
+q -> start recording macro, end with 'q' again
+:w FILENAME -> save file as FILENAME
+:q -> quit, or close current split window
+:q! -> force quit (regardless of changes)
+,Q -> same as :q!
+,q -> quit
+:w -> save file
+,w -> save file
+:x -> save and quit
+,x -> save and quit
+,h -> create horizontal split window
+TAB -> change to a different window (if split window(s) present)
+H -> previous buffer (if multiple files open)
+L -> next buffer
+,N -> create new tabbed window
+CTRL-h -> go to left tab
+CTRL-l -> go to right tab
+yy -> copy current line
+p -> paste below
+P -> paste above
+V -> enter VISUAL LINE mode (like VISUAL, but smallest element is a whole line) (j, k, SPACE, BACKSPACE usable)
+v -> enter VISUAL mode
+
+VISUAL or VISUAL LINE mode commands
+-----------------------------------
+h, j, k, l -> just like NORMAL mode
+y -> copy selection
+x -> delete selection
+
+*** to copy/paste from/to Firefox's "COPY/PASTE" (not vim's internal copy/paste) use:
+    ,y -> copy
+    ,p -> paste below
+    ,P -> paste above
