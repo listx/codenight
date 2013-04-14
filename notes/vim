@@ -17,17 +17,26 @@ h -> move left one char
 j -> move down one line
 k -> move up one line
 l -> move right one char
+w -> move right 1 word
+e -> move right 1 word (to the end of that word)
+b -> move back 1 word
+ge -> move back 1 word (to the end of that word)
+    W, E, B -> "stronger" versions of w, e, b
 x -> delete current character under cursor
 dd -> delete current line
 S -> delete current line AND go into INSERT mode
 cc -> same as `S'
+cw -> delete word with 'w' and go into INSERT mode
 D -> delete rest of line
 C -> delete rest of line after cursor AND go into INSERT mode
 SPACE -> move 10 lines down
 BACKSPACE -> move 10 lines up
+G -> go to last line
+gg -> go to the top
 u -> undo last change
 CTRL-r -> redo
-q -> start recording macro, end with 'q' again
+q -> start recording macro, end with 'qq' again
+:e FILENAME -> open FILENAME
 :w FILENAME -> save file as FILENAME
 :q -> quit, or close current split window
 :q! -> force quit (regardless of changes)
@@ -38,6 +47,7 @@ q -> start recording macro, end with 'q' again
 :x -> save and quit
 ,x -> save and quit
 ,h -> create horizontal split window
+,v -> create vertical split window
 TAB -> change to a different window (if split window(s) present)
 H -> previous buffer (if multiple files open)
 L -> next buffer
@@ -54,7 +64,8 @@ VISUAL or VISUAL LINE mode commands
 -----------------------------------
 h, j, k, l -> just like NORMAL mode
 y -> copy selection
-x -> delete selection
+x -> delete selection, copy into "paste" buffer for pasting (same as 'cut' in windows)
+d -> same as x
 
 *** to copy/paste from/to Firefox's "COPY/PASTE" (not vim's internal copy/paste) use:
     ,y -> copy
