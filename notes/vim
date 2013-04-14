@@ -25,6 +25,8 @@ D -> delete rest of line
 C -> delete rest of line after cursor AND go into INSERT mode
 SPACE -> move 10 lines down
 BACKSPACE -> move 10 lines up
+u -> undo last change
+CTRL-r -> redo
 q -> start recording macro, end with 'q' again
 :w FILENAME -> save file as FILENAME
 :q -> quit, or close current split window
