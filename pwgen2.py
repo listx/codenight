@@ -35,7 +35,11 @@ def main():
 			usage()
 			sys.exit()
 		elif o in ("-n", "--length"):
-			passLength = int(a)
+			try:
+				passLength = int(a)
+			except ValueError as err:
+				print(err)
+				sys.exit(2)
 		else:
 			assert False, "unhandled option"
 
