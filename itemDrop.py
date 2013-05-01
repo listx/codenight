@@ -1,4 +1,5 @@
-#/usr/bin/env python
+#!/usr/bin/env python
+
 import random
 
 lootType = ["Helm", "Boots", "Gloves", "Pants", "Pike", "Axe", "Sword", "Bracers", "Shoulders", "Amulet", "Ring"]
