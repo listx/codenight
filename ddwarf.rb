@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 #2d map, "a,s,d,f" to move, "x" to exit
 
 a = ". . . . ."
@@ -31,18 +33,30 @@ while true
 	#user movement inputs
 	input = gets.chomp
 	case input
-	when "a"
+	when "w", "west"
 		if location[0] > 0
 			location[0] -= 1
 		else
-			puts "I cannot go any further left"
+			puts "I cannot go any further west"
 		end
-	when "s"
-		location[1] += 1
-	when "d"
-		location[0] += 1
-	when "w"
-		location[1] -= 1
+	when "s", "south"
+		if location[1] < (aArray.size - 1)
+			location[1] += 1
+		else
+			puts "I cannot go any further south"
+		end
+	when "e", "east"
+		if location[0] < (aArray[0].size - 1)
+                        location[0] += 1
+		else
+			puts "I cannot go any further east"
+		end
+	when "n", "north"
+		if location[1] > 0
+			location[1] -= 1
+		else
+			puts "I cannot go any further north"
+		end
 	when "x"
 		break
 	else
