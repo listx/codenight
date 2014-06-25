@@ -44,11 +44,11 @@ def loadmap filename
   true
 end
 
-map = ""
-map = ARGV[0]
+custom_map_filename = ""
+custom_map_filename = ARGV[0]
 
 while true
-  importOk = loadmap map
+  importOk = loadmap custom_map_filename
   if !importOk
     puts "map import failure"
     exit
