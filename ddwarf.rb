@@ -44,8 +44,11 @@ def loadmap filename
   true
 end
 
+map = ""
+map = ARGV[0]
+
 while true
-  importOk = loadmap "cmap"
+  importOk = loadmap map
   if !importOk
     puts "map import failure"
     exit
