@@ -28,7 +28,29 @@ def showMap (mapArray, coord, player)
 	end
 end
 
+def loadmap filename
+  maptext = []
+  file = File.open(filename, "r")
+  file.each_line do |line|
+    maptext << line
+  end
+  reference_size = maptext[0].size
+  maptext.each do |line|
+    if line.size != reference_size
+      puts "import map: error!!! (non uniform line lengths)"
+      return false
+    end
+  end
+  true
+end
+
 while true
+  importOk = loadmap "cmap"
+  if !importOk
+    puts "map import failure"
+    exit
+  end
+  exit
 	showMap aArray, location, pSymbol
 	#user movement inputs
 	input = gets.chomp
