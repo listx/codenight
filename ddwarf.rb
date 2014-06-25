@@ -53,7 +53,6 @@ while true
     puts "map import failure"
     exit
   end
-  exit
 	showMap aArray, location, pSymbol
 	#user movement inputs
 	input = gets.chomp
