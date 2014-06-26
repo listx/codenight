@@ -16,7 +16,6 @@ importMap fp = do
 		sizeX = length ((lines f)!!0)
 	return $ Map
 		{ rawStrs = lines f
-		, padded = paddingTop sizeX ++ (map addPaddingLR $ lines f) ++ paddingTop sizeX
 		}
 	where
 	padding = replicate padAmt ' '
@@ -24,30 +23,29 @@ importMap fp = do
 	addPaddingLR line = padding ++ line ++ padding
 
 padAmt :: Int
-padAmt = 5
+padAmt = 10
 
 cameraRegion :: Map -> Player -> String
 cameraRegion m@Map{..} p@Player{..} = unlines $ regionTop ++ middle ++ regionBottom
 --cameraRegion m@Map{..} p@Player{..} = unlines middle
 	where
 	(x, y) = playerCoord
-	middle = [buildLeft ++ "@" ++ buildRight]
-	left = take (x + 1) playerLine'
-	right = drop x playerLine'
-	(xMax, yMax) = mapSize m
 	playerLine' = playerLine p m
+	(xMax, yMax) = mapSize m
+	middle = [buildLeft ++ "@" ++ buildRight]
+	regionTop = map buildLine [(y-padAmt)..(y-1)]
+	regionBottom = map buildLine [(y+1)..(y+padAmt)]
 	buildLeft = reverse $ foldl searchRange [] [(x-padAmt)..(x-1)]
 	buildRight = reverse $ foldl searchRange [] [(x+1)..(x+padAmt)]
 	buildLine y = reverse $ foldl searchRange2 [] [(x-padAmt)..(x+padAmt)]
 		where
 		searchRange2 acc idx
 			| idx >= 0 && idx < xMax && y >= 0 && y < yMax = (rawStrs!!y)!!idx:acc
-			| otherwise = ' ':acc
+			| otherwise = borderChar:acc
 	searchRange acc idx
 		| idx >= 0 && idx < xMax = playerLine'!!idx:acc
-		| otherwise = ' ':acc
-	regionTop = map buildLine [(y-padAmt)..(y-1)]
-	regionBottom = map buildLine [(y+1)..(y+padAmt)]
+		| otherwise = borderChar:acc
+	borderChar = toEnum 0x25a0
 
 playerLine :: Player -> Map -> String
 playerLine Player{..} Map{..} = rawStrs!!(snd playerCoord)
@@ -64,7 +62,6 @@ data Player = Player
 
 data Map = Map
 	{ rawStrs :: [String]
-	, padded :: [String]
 	} deriving (Eq, Show)
 
 --mapCoordRegion :: Map -> Coord -> Map
