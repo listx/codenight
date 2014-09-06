@@ -27,4 +27,5 @@ reduce = foldl stackManip []
 			| otherwise -> let
 				a = stack!!0
 				b = stack!!1
-				in op a b : drop 2 stack
+				c = op a b
+				in c : drop 2 stack
