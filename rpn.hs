@@ -5,10 +5,7 @@ data Term
 	| TermOp (Integer -> Integer -> Integer)
 
 evaluate :: String -> [Integer]
-evaluate = reduce . mkTerms
-
-mkTerms :: String -> [Term]
-mkTerms = map mkTerm . words
+evaluate = reduce . map mkTerm . words
 
 mkTerm :: String -> Term
 mkTerm termStr = case termStr of
