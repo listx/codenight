@@ -5,14 +5,10 @@ data Term
 	| TermOp (Int -> Int -> Int)
 
 evaluate :: String -> [Int]
-evaluate equationStr = reduce terms
-	where
-	terms = mkTerms equationStr
+evaluate = reduce . mkTerms
 
 mkTerms :: String -> [Term]
-mkTerms equationStr = map mkTerm termsStrAry
-	where
-	termsStrAry = words equationStr
+mkTerms = map mkTerm . words
 
 mkTerm :: String -> Term
 mkTerm termStr = case termStr of
@@ -20,13 +16,13 @@ mkTerm termStr = case termStr of
 	"-" -> TermOp (-)
 	"*" -> TermOp (*)
 	_
-		| allDigits termStr -> let
+		| all (==True) $ map isDigit termStr -> let
 			n = read termStr :: Int
 			in TermInt n
 		| otherwise -> error $ "invalid input `" ++ termStr ++ "'"
 
 reduce :: [Term] -> [Int]
-reduce ts = foldl f [] ts
+reduce = foldl f []
 	where
 	f stack term = case term of
 		TermInt n -> n : stack
@@ -37,6 +33,3 @@ reduce ts = foldl f [] ts
 				a = stack!!0
 				b = stack!!1
 				in op a b : drop 2 stack
-
-allDigits :: String -> Bool
-allDigits = all (==True) . map isDigit
