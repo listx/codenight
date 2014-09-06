@@ -13,9 +13,7 @@ mkTerm termStr = case termStr of
 	"-" -> TermOp (-)
 	"*" -> TermOp (*)
 	_
-		| all (==True) $ map isDigit termStr -> let
-			n = read termStr :: Integer
-			in TermInt n
+		| and $ map isDigit termStr -> TermInt $ read termStr
 		| otherwise -> error $ "invalid input `" ++ termStr ++ "'"
 
 reduce :: [Term] -> [Integer]
