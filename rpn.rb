@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 def evaluate(equation_str)
-	terms = equation_str.split(' ').reverse
+	terms = equation_str.split(' ')
 	stack = []
 	while terms.size > 0
-		term = terms.pop
+		term = terms.shift
 		case term
 		when /^\d+?$/
 			stack.push(term.to_i)
