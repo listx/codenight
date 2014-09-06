@@ -17,9 +17,9 @@ mkTerm termStr = case termStr of
 		| otherwise -> error $ "invalid input `" ++ termStr ++ "'"
 
 reduce :: [Term] -> [Integer]
-reduce = foldl f []
+reduce = foldl stackManip []
 	where
-	f stack term = case term of
+	stackManip stack term = case term of
 		TermInt n -> n : stack
 		TermOp op
 			| length stack < 2
