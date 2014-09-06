@@ -1,10 +1,10 @@
 import Data.Char (isDigit)
 
 data Term
-	= TermInt Int
-	| TermOp (Int -> Int -> Int)
+	= TermInt Integer
+	| TermOp (Integer -> Integer -> Integer)
 
-evaluate :: String -> [Int]
+evaluate :: String -> [Integer]
 evaluate = reduce . mkTerms
 
 mkTerms :: String -> [Term]
@@ -17,11 +17,11 @@ mkTerm termStr = case termStr of
 	"*" -> TermOp (*)
 	_
 		| all (==True) $ map isDigit termStr -> let
-			n = read termStr :: Int
+			n = read termStr :: Integer
 			in TermInt n
 		| otherwise -> error $ "invalid input `" ++ termStr ++ "'"
 
-reduce :: [Term] -> [Int]
+reduce :: [Term] -> [Integer]
 reduce = foldl f []
 	where
 	f stack term = case term of
